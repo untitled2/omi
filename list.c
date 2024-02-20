@@ -87,10 +87,10 @@ void RemoveNode(Node** head, int val)
 	while (curr) {
 		if (curr->val == val) {
 			prev->next = curr->next;
-			if (curr->next)
-				curr->next->prev = prev;
 			free(curr);
 			curr = prev->next;
+			if (curr)
+				curr->prev = prev;
 		} else {
 			prev = curr;
 			curr = curr->next;
